@@ -210,3 +210,52 @@ Add an else clause that assigns the number 0 to the player's x velocity.
 Step 50
 The next step is to add the functionality that will be responsible for moving the player across the screen.
 Create a new arrow function called movePlayer that has three parameters called key, xVelocity, isPressed.
+
+Step 51
+In the game, the player will interact with different checkpoints. If the isCheckpointCollisionDetectionActive is false, then you will need to stop the player's movements on the x and y axes.
+Start by creating an if statement where the condition checks if the isCheckpointCollisionDetectionActive is false.
+Remember that you can use the ! operator to check if the variable is false.
+
+Step 52
+Inside the if statement, set the player's x velocity to 0 and the player's y velocity to 0.
+Below that, add a return statement.
+
+Step 53
+Below the if statement, create a switch statement with a value of key.
+
+Step 54
+The first case you will want to add is when the left arrow key is pressed.
+Inside the switch statement, add a new case called "ArrowLeft".
+
+Step 55
+Inside the case clause, assign isPressed to keys.leftKey.pressed.
+Below that, add an if statement that checks if xVelocity is equal to 0. If so, assign the xVelocity to player.velocity.x.
+
+Step 56
+Below your if statement, use the subtraction assignment operator to subtract the xVelocity from player.velocity.x.
+To close out this case, make sure to add a break statement.
+
+Step 57
+The player can jump up by using the up arrow key or the spacebar.
+Add three new cases for "ArrowUp", " ", and "Spacebar". Remember that you can group cases together when they share the same operation.
+Inside those cases, use the subtraction assignment operator to subtract 8 from player.velocity.y.
+To close out these cases, make sure to add a break statement.
+
+Step 58
+The last case you will need to add will be for "ArrowRight".
+Inside that case, assign isPressed to keys.rightKey.pressed.
+Add an if statement that checks if xVelocity is equal to 0. If so, assign the xVelocity to player.velocity.x.
+Below that if statement, use the addition assignment operator to assign the xVelocity to player.velocity.x.
+
+Step 59
+Now it is time to add the event listeners that will be responsible for calling the movePlayer function.
+Start by adding an addEventListener to the global window object.
+For the arguments, pass in the keydown event and an arrow function that uses the destructuring assignment to get the key property from the event object in the event listener parameter.
+Here is the syntax for using the destructuring assignment in the parameter list of the arrow function:
+Example Code
+btn.addEventListener('click', ({ target }) => {
+  console.log(target);
+});
+
+Step 60
+Inside the arrow function, call the movePlayer function and pass in key, 8, and true as arguments.
