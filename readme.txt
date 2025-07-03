@@ -259,3 +259,52 @@ btn.addEventListener('click', ({ target }) => {
 
 Step 60
 Inside the arrow function, call the movePlayer function and pass in key, 8, and true as arguments.
+
+Step 61
+Add another addEventListener to the global window object and pass in the keyup event and use destructuring to pass in the key property from the event.
+
+Step 62
+Inside the callback function, call the movePlayer function and pass in key, 0, and false as arguments.
+
+Step 63
+Before you can start moving your player across the screen, you will need to use the animate function.
+Inside the startGame function, delete player.draw() and call the animate function.
+Click the Start Game button and use the left and right arrow keys to move the player across the screen. You can also use the spacebar or the up arrow key to jump up.
+
+Step 64
+The next step is to create the platforms and platform logic.
+Start by creating a new Platform class.
+
+Step 65
+Inside the Platform class, create a constructor that takes in the x and y coordinates.
+
+Step 66
+When working with objects where the property name and value are the same, you can use the shorthand property name syntax. This syntax allows you to omit the property value if it is the same as the property name.
+Example Code
+// using shorthand property name syntax
+obj = {
+  a, b, c
+}
+The following code is the same as:
+Example Code
+obj = {
+  a: a,
+  b: b,
+  c: c
+}
+Inside the constructor, add this.position and assign it an object with the x and y coordinates. Make sure to use the shorthand property syntax .
+
+Step 67
+Next, add a width property to the constructor and assign it the number 200.
+Don't forget to use the this keyword to access the properties.
+
+Step 68
+Below that, add a height property and assign it the number proportionalSize(40). You need to use the proportionalSize() function to make sure the height is proportional to the screen size.
+Remember to use the this keyword to access the properties.
+
+Step 69
+Next, add a draw method to the Platform class.
+
+Step 70
+Inside the draw method, assign "#acd157" to the ctx.fillStyle.
+Below that, call the ctx.fillRect method and pass in the x and y coordinates, along with the width and height properties. Remember to include this before each property.
