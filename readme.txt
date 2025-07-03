@@ -93,3 +93,40 @@ Example Code
 fillRect(x, y, width, height)
 Inside the fillRect() method add the this.position.x, this.position.y, this.width and this.height values.
 
+Step 21
+The next step is to create an update() method which will be responsible for updating the player's position and velocity as it moves throughout the game.
+Below your draw() method, create an empty update() method.
+
+Step 22
+Inside the update() method, call the draw() method to ensure that the player is continually drawn on the screen as the game updates.
+Don't forget to include the this keyword.
+
+Step 23
+When the player moves to the right, you will need to adjust its velocity.
+Use the addition assignment operator to add the velocity's x coordinate to the player's x position.
+Don't forget to include the this keyword for the velocity and position.
+
+Step 24
+When the player jumps up, you will need to add the logic for adjusting its velocity.
+Use the addition assignment operator to add the velocity's y coordinate to the player's y position.
+Don't forget to include the this keyword for the velocity and position.
+
+Step 25
+Right now, when the player jumps up, it is possible for it to move past the height of the canvas.
+To fix that, you will need to add a condition to stop the player from falling past the height of the canvas.
+Create an empty if statement that checks if the sum of the player's y position, height, and y velocity is less than or equal to the height of the canvas.
+
+Step 26
+In the if statement, add another if statement to check if the player's y position is less than 0.
+
+Step 27
+Inside the inner if statement, assign 0 to the player's y position.
+
+Step 28
+Below the this.position.y = 0, assign gravity to the velocity's y position.
+
+Step 29
+Below your inner if statement, use the addition assignment operator to add gravity to the y velocity.
+
+Step 30
+Add an else clause that assigns 0 to this.velocity.y.
