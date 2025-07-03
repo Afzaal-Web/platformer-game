@@ -308,3 +308,54 @@ Next, add a draw method to the Platform class.
 Step 70
 Inside the draw method, assign "#acd157" to the ctx.fillStyle.
 Below that, call the ctx.fillRect method and pass in the x and y coordinates, along with the width and height properties. Remember to include this before each property.
+
+Step 71
+The next step will be to create a list of positions for the platforms.
+Start by creating a new const variable called platformPositions and assign it an empty array.
+
+Step 72
+Inside the platformPositions, you will need to add the list of positions for the platforms.
+Add a new object that has an x property with a value of 500 and a y property with a value of proportionalSize(450).
+
+Step 73
+Below that, add another object with an x property with a value of 700 and a y property with a value of proportionalSize(400).
+
+Step 74
+Add the rest of the platform positions to the platformPositions array with the following values:
+Example Code
+{x=850  y=proportionalSize(350)}
+{x=900  y=proportionalSize(350)}
+{x=1050 y=proportionalSize(150)}
+{x=2500 y=proportionalSize(450)}
+{x=2900 y=proportionalSize(400)}
+{x=3150 y=proportionalSize(350)}
+{x=3900 y=proportionalSize(450)}
+{x=4200 y=proportionalSize(400)}
+{x=4400 y=proportionalSize(200)}
+{x=4700 y=proportionalSize(150)}
+
+Step 75
+The next step is to create a list of new platform instances using the Platform class. You will later reference this list to draw the platforms on the canvas.
+Start by creating a new const variable called platforms and assign it platformPositions.map().
+
+Step 76
+In the map callback function, pass in platform for the parameter and implicitly return the creation of a new Platform instance with the platform.x and platform.y values passed in as arguments.
+
+Step 77
+Inside the animate function, you will need to draw each of the platforms onto the canvas.
+Add a forEach loop that iterates through the platforms array.
+Inside the callback function, add a platform parameter and for the body of the function call the draw method on each platform.
+
+Step 78
+If you try to start the game, you will notice that the platforms are rendered on the screen. But as the player moves to the right, the platform does not move with it.
+To fix this issue, you will need to update the platform's x position as the player moves across the screen.
+Inside the animate function, add a condition to check if the right key was pressed and if the isCheckpointCollisionDetectionActive is true.
+
+Step 79
+Inside your condition, add a forEach loop to iterate through the platforms array. Inside the callback function use platform for the parameter.
+Inside the loop, use the subtraction assignment operator to subtract 5 from the platform's x position.
+
+Step 80
+Next, add an else if statement to check if the left key was pressed and if isCheckpointCollisionDetectionActive is true.
+Inside that condition, add a forEach loop to iterate through the platforms array.
+Inside the loop, use the addition assignment operator to add 5 to the platform's x position.
