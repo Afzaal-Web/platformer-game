@@ -130,3 +130,43 @@ Below your inner if statement, use the addition assignment operator to add gravi
 
 Step 30
 Add an else clause that assigns 0 to this.velocity.y.
+
+Step 31Passed
+The final condition you need to add inside the Player class is to ensure that the player stays within the boundaries of the canvas screen and doesn't move too far off to the left.
+Create an if statement, to check if the player's x position is less than the width.
+
+Step 32
+Inside the if statement, assign the width to the player's x position.
+
+Step 33
+For the last condition, you will need to check if the player's x position has exceeded the right edge of the canvas. If it has, you will need to set the player's x position to the maximum value so the player does not accidentally go off screen to the right.
+Inside your update method, create an if statement that checks if this.position.x >= canvas.width - this.width * 2.
+
+Step 34
+Inside your if statement, assign canvas.width - this.width * 2 to this.position.x.
+This will ensure that the player's x position will never exceed the right edge of the canvas.
+
+Step 35
+The next step is to use the new keyword to create a new instance of the Player object and assign it to a new const variable called player.
+
+Step 36
+Now it is time to see your new player drawn on the screen.
+Start by creating an empty arrow function called startGame.
+
+Step 37
+Inside your startGame function, you will need to display the canvas element and hide the startScreen container.
+Use canvas.style.display to change the display value to "block".
+Below that, use startScreen.style.display to change the display value to "none".
+
+Step 38
+To visualize the player on the screen, you need to draw it on the canvas.
+Inside the startGame function, call the .draw() method of your player object.
+
+Step 39
+Now it's time to add the functionality for the start game button.
+Add an addEventListener to the startBtn and pass in a click event and a reference to the startGame function.
+Click on the start game button, and you should see a light blue square on the screen which represents the main player.
+
+Step 40
+Now that you can see the player on the screen, it is time to start adding the functionality for moving the player across the screen.
+Create a new empty arrow function called animate.
