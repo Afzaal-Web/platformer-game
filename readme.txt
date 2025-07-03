@@ -170,3 +170,43 @@ Click on the start game button, and you should see a light blue square on the sc
 Step 40
 Now that you can see the player on the screen, it is time to start adding the functionality for moving the player across the screen.
 Create a new empty arrow function called animate.
+
+Step 41
+The requestAnimationFrame() web API, takes in a callback and is used to update the animation on the screen. The animate function will be responsible for updating the player's position and continually drawing it on the canvas.
+Inside the animate function, call the requestAnimationFrame() API and pass animate as the argument.
+
+Step 42
+As the player moves through the game, you will need to clear the canvas before rendering the next frame of the animation.
+You can use the clearRect() Web API to accomplish this. It takes in an x, y, width, and height arguments.
+Below your requestAnimationFrame, call the clearRect() method on the ctx variable and pass in 0, 0, canvas.width, canvas.height as the arguments.
+
+Step 43
+The next step is to update the player's position as it moves throughout the game.
+Below your ctx.clearRect(), call the update() method on the player.
+
+Step 44
+To manage the player's movement in the game, you will need to monitor when the left and right arrow keys are pressed.
+Create a new const variable called keys and assign it an empty object.
+
+Step 45
+Inside the keys object, add a new key called rightKey and assign it an object with the key-value pair of pressed: false.
+Below the rightKey object, create a leftKey object and assign it an object with the key-value pair of pressed: false.
+
+Step 46
+The next step is to add the logic for increasing or decreasing a player's velocity based on if they move to the left or right of the screen.
+Inside the animate function, create an if statement where the condition checks if the right key was pressed and the player's x position is less than proportionalSize(400).
+You need to use the proportionalSize function here to make sure the player's x position is always proportional to the screen size.
+
+Step 47
+Inside the if statement, assign the number 5 to the player's x velocity.
+
+Step 48
+Add an else if statement where the condition checks if the left key was pressed and the player's x position is greater than proportionalSize(100). You need to use the proportionalSize function here to make sure the player's x position is always proportional to the screen size.
+Inside the else if statement, assign the number -5 to the player's x velocity.
+
+Step 49
+Add an else clause that assigns the number 0 to the player's x velocity.
+
+Step 50
+The next step is to add the functionality that will be responsible for moving the player across the screen.
+Create a new arrow function called movePlayer that has three parameters called key, xVelocity, isPressed.
