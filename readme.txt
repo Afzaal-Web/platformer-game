@@ -402,3 +402,113 @@ Step 92
 Inside the body of the if statement, assign platform.position.y + player.height to the player's y position.
 Then, assign gravity to the player's y velocity.
 Now, when you start the game, you will be able to jump underneath the platform and collide with it.
+
+Step 93
+The last portion of the project is to add the logic for the checkpoints. When a player collides with a checkpoint, the checkpoint screen should appear.
+Start by creating a new class called CheckPoint.
+
+Step 94
+Inside that CheckPoint class, add a constructor with x, y and z parameters.
+
+Step 95
+Inside the constructor, create an object with x and y parameters and assign it to the position.
+Remember to use the this keyword to access the properties.
+
+Step 96
+The next step is to add the width and height to the CheckPoint class.
+The width and height should be proportionalSize(40) and proportionalSize(70) respectively.
+
+Step 97
+Below the checkpoint's width and height properties, use the this keyword to add a new claimed property and assign it the value of false. This property will be used to check if the player has reached the checkpoint.
+
+Step 98
+Now you need to create a draw method for the CheckPoint class.
+Inside the draw method, assign the fillStyle property on the ctx object the hex color "#f1be32".
+Below the fillStyle property, use the fillRect method on the ctx object and pass in the x, y, width, and height properties as arguments.
+
+Step 99
+The last method you will need to add to the CheckPoint class is the claim method.
+Inside the claim method, assign 0 to the width and height properties of the CheckPoint instance.
+Below those properties, assign Infinity to the y position.
+Lastly, assign true to the claimed property.
+
+Step 100
+Use const to create a new array called checkpointPositions.
+Inside that array, add an object for each of the following positions:
+Example Code
+ x: 1170, y: proportionalSize(80), z: 1
+ x: 2900, y: proportionalSize(330), z: 2 
+ x: 4800, y: proportionalSize(80), z: 3 
+
+ Step 101
+The next step is to create a list of new checkpoint instances using the CheckPoint class.
+Start by creating a new const variable called checkpoints and assign it checkpointPositions.map().
+For the map callback function, pass in checkpoint for the parameter and implicitly return the creation of a new CheckPoint instance with the checkpoint.x, checkpoint.y and checkpoint.z values passed in as arguments.
+
+Step 102
+Inside the animate function, you will need to draw each of the checkpoints onto the canvas.
+Add a forEach loop that iterates through the checkpoints array.
+Inside the callback function, add a checkpoint parameter and for the body of the function call the draw method on each checkpoint.
+
+Step 103
+Inside your condition, add a forEach loop to iterate through the checkpoints array. Use checkpoint as the parameter name for the callback function.
+Inside the forEach callback, use the subtraction assignment operator to subtract 5 from the checkpoints's x position.
+
+Step 104
+Inside your else if statement, add a forEach loop to iterate through the checkpoints array. Use checkpoint as the parameter name for the callback function.
+Inside the forEach callback, use the addition assignment operator to add 5 to the checkpoints's x position.
+
+Step 105
+The next step is to create a function that will show the checkpoint message when the player reaches a checkpoint.
+Create a new arrow function called showCheckpointScreen that takes in a msg parameter.
+
+Step 106
+Inside the showCheckpointScreen function, set the checkpointScreen style.display property to "block".
+
+Step 107
+Set the checkpointMessage's textContent property to the msg parameter.
+
+Step 108
+Create an if statement that checks if isCheckpointCollisionDetectionActive is true.
+Inside the if statement, add a setTimeout() that takes in a callback function and a delay of 2000 milliseconds.
+For the callback function, it should set the checkpointScreen style.display property to "none".
+
+Step 109
+The last few steps involve updating the animate function to display the checkpoint screen when the player reaches a checkpoint.
+Start by adding a forEach to the checkpoints array. For the callback function, use checkpoint, index and checkpoints for the parameters.
+
+Step 110
+Create a new const variable called checkpointDetectionRules and assign it an empty array.
+Inside that array, add a boolean expression that checks if the player's position.x is greater than or equal to the checkpoint's position.x.
+
+Step 111
+Add another boolean expression that checks if the player's position.y is greater than or equal to the checkpoint's position.y.
+Below that statement, add another boolean expression that checks if the player's position.y plus the player's height is less than or equal to the checkpoint's position.y plus the checkpoint's height.
+Below that statement, add the isCheckpointCollisionDetectionActive variable.
+
+Step 112
+You will need to add two more checkpoint detection rules to the checkpointDetectionRules array.
+The first rule should check if the player's x position minus the player's width is less than or equal to the checkpoint's x position minus the checkpoint's width plus the player's width multiplied by 0.9. This will ensure that the player is close enough to the checkpoint to claim it.
+The second rule should check if index is strictly equal to 0 or if the previous checkpoint(checkpoints[index - 1].claimed) is true. This will ensure that the player can only claim the first checkpoint or a checkpoint that has already been claimed.
+
+Step 113
+Next, add an if statement that checks if every rule in the checkpointDetectionRules array is true.
+Make sure to use the every method for this.
+
+Step 114
+Inside the if statement, call the claim method on the checkpoint object.
+
+Step 115
+The next step is to write a condition that checks if the player has reached the last checkpoint.
+Start by adding an if statement that checks if the index is equal to the length of the checkpoints array minus one.
+
+Step 116
+Inside the condition, you want to first set the isCheckpointCollisionDetectionActive to false.
+Then you will need to call the showCheckpointScreen function and pass in the string "You reached the final checkpoint!" as an argument.
+Lastly, you will need to call the movePlayer function and pass in the string "ArrowRight" as the first argument, the number 0 as the second argument, and the boolean false as the third argument.
+
+Step 117
+The last thing you will need to do is add an else if statement.
+Your condition should check if the player's x position is greater than or equal to the checkpoint's x position and less than or equal to the checkpoint's x position plus 40
+Inside the body of the else if statement, you will need to call the showCheckpointScreen function and pass in the string "You reached a checkpoint!" as an argument.
+Congratulations! You have completed the platformer game project!
