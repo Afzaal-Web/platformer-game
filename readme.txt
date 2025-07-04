@@ -359,3 +359,46 @@ Step 80
 Next, add an else if statement to check if the left key was pressed and if isCheckpointCollisionDetectionActive is true.
 Inside that condition, add a forEach loop to iterate through the platforms array.
 Inside the loop, use the addition assignment operator to add 5 to the platform's x position.
+
+Step 81
+When you start the game, you will notice that the position of the platforms is animating alongside the player. But if you try to jump below one of the platforms, then you will jump right through it.
+To fix this issue, you will need to add collision detection logic to the game.
+Start by calling the forEach method on the platforms array. For the callback function pass in platform as the parameter.
+
+Step 82
+Inside the callback function, create a new const variable called collisionDetectionRules and assign it an empty array.
+Inside that array, add a boolean expression that checks whether the player's y position plus the player's height is less than or equal to the platform's y position.
+
+Step 83
+Add another boolean expression that checks if the sum of the player's y position, height, and y velocity is greater than or equal to the platform's y position
+
+Step 84
+Below that boolean expression, add another boolean expression that checks if the player's x position is greater than or equal to the platform's x position minus half of the player's width.
+
+Step 85
+Add one last boolean expression that checks if the player's x position is less than or equal to the sum of the platform's x position plus the platform's width minus one-third of the player's width.
+
+Step 86
+Next, add an if statement that checks if every rule in the collisionDetectionRules array is truthy. Make sure to use the every method for this.
+Inside the body of the if statement, assign the number 0 to the player's y velocity followed by a return statement.
+
+Step 87
+Create a new const variable called platformDetectionRules and assign it an empty array.
+
+Step 88
+Inside that array, add a boolean expression that checks if the player's x position is greater than or equal to the platform's x position minus half of the player's width.
+
+Step 89
+Below that boolean expression, add another boolean expression that checks if the player's x position is less than or equal to the sum of the platform's x position plus the platform's width minus one-third of the player's width.
+
+Step 90
+Add another boolean expression that checks if the player's y position plus the player's height is greater than or equal to the platform's y position.
+Below that, add another boolean expression that checks if the player's y position is less than or equal to the sum of the platform's y position plus the platform's height.
+
+Step 91
+Add an if statement that checks if every platform detection rule is true. Make sure to use the every method for this.
+
+Step 92
+Inside the body of the if statement, assign platform.position.y + player.height to the player's y position.
+Then, assign gravity to the player's y velocity.
+Now, when you start the game, you will be able to jump underneath the platform and collide with it.
